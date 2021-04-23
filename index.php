@@ -129,7 +129,7 @@
 
 		if (!$data['name'] && !$data['mail'] && !$data['age']) {
 
-			echo 'Non hai passato nessuno dei parametri in GET';
+			echo 'Non hai inserito nessuno dei parametri in GET<br><br>';
 
 		} else {
 
@@ -137,30 +137,45 @@
 				$name = getHighHtml($data['name']);
 				if (strlen($data['name']) > 3) {
 					echo $name.' è più lungo di 3 caratteri<br><br>';
+					$flag_name = true;
 				} else {
 					echo $name.' non è più lungo di 3 caratteri<br><br>';
 				}
+			}else {
+				echo 'manca il parametro name<br><br>';
 			}
 			
 			if ($data['mail']) {
 				$mail = getHighHtml($data['mail']);
 				if (strpos($data['mail'],'.') && strpos($data['mail'],'@')) {
 					echo $mail.' contiene . e @<br><br>';
+					$flag_mail = true;
 				} else {
 					echo $mail.' non contiene . e @<br><br>';
 				}		
+			} else {
+				echo 'manca il parametro mail<br><br>';
 			}
 
 			if ($data['age']) {
 				$age = getHighHtml($data['age']);
 				if (is_numeric($data['age'])) {
-					echo $age.' è un numero';
+					echo $age.' è un numero<br><br>';
+					$flag_age = true;
 				} else {
-					echo $age.' non è un numero';
+					echo $age.' non è un numero<br><br>';
 				}
+			}else {
+				echo 'manca il parametro age<br><br>';
 			}
 		}
 	
+		if ($flag_name && $flag_mail && $flag_age) {
+			echo 'Accesso consentito';
+		} else {
+			echo 'Accesso non consentito';
+		}
+
 		echo '</div>';
 		
 		function getHighHtml($string) {
