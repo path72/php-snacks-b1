@@ -114,11 +114,14 @@
 			Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”.
 		*/
 
-		$data = [
-			'name' => $_GET['name'],
-			'mail' => $_GET['mail'],
-			'age'  => $_GET['age']
-		];
+		// $data = [
+		// 	'name' => $_GET['name'],
+		// 	'mail' => $_GET['mail'],
+		// 	'age'  => $_GET['age']
+		// ];
+		// var_dump($data);
+
+		$data = $_GET;
 		// var_dump($data);
 
 		echo '<div class="card">';
